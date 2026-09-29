@@ -24,8 +24,8 @@ a { color: inherit; text-decoration: none; }
 .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 .site-header { padding: 20px 0; }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; letter-spacing: -.04em; }
-.brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: #059669; color: #fff; font-size: 19px; }
+.brand { display: flex; align-items: center; gap: 10px; font: 700 19px Outfit, sans-serif; letter-spacing: -.04em; }
+.brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: #10b981; color: #fff; font: 750 15px/1 Outfit, sans-serif; letter-spacing: -.06em; }
 .nav-links { display: flex; align-items: center; gap: 24px; color: #475569; font-size: 14px; font-weight: 500; }
 .nav-links a:hover { color: var(--ink); }
 .nav-button, .button { display: inline-flex; align-items: center; justify-content: center; border-radius: 14px; padding: 12px 18px; background: #0f172a; color: #fff; font-weight: 700; font-size: 14px; transition: background .18s ease, transform .18s ease; }
@@ -42,31 +42,57 @@ h1 { max-width: 740px; margin: 22px auto 18px; font-size: clamp(44px, 7vw, 76px)
 .button.secondary:hover { background: #f8fafc; }
 
 .preview { padding-bottom: 76px; }
-.dashboard { display: grid; grid-template-columns: .75fr 1.25fr; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 28px; background: #e8eef5; box-shadow: var(--shadow); }
-.card { border: 1px solid var(--line); border-radius: 22px; background: var(--surface); padding: 24px; box-shadow: 0 2px 8px rgba(15,23,42,.035); }
-.time-card { display: flex; flex-direction: column; justify-content: center; min-height: 310px; text-align: center; }
-.time { font-size: clamp(40px, 6vw, 68px); font-weight: 800; letter-spacing: -.07em; line-height: 1; }
-.date { margin-top: 12px; color: #64748b; font-size: 16px; }
-.weather-card { position: relative; }
-.weather-main { display: flex; align-items: center; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
-.weather-icon { font-size: 45px; }
-.temperature { font-size: 38px; font-weight: 800; letter-spacing: -.06em; }
-.feels { margin-left: 8px; color: var(--muted); font-size: 14px; }
-.condition { color: #475569; }
-.weather-stats, .forecast { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-.weather-stats { padding: 18px 0; border-bottom: 1px solid var(--line); text-align: center; }
-.stat-label { display: block; color: var(--muted); font-size: 12px; }
-.stat-value { font-size: 14px; font-weight: 700; }
-.forecast { padding-top: 18px; }
-.forecast-day { display: grid; gap: 5px; color: #64748b; font-size: 13px; }
-.forecast-icon { font-size: 24px; }
-.forecast-temp { color: var(--ink); font-weight: 700; }
-.dashboard > .card[style*="grid-column"] { grid-column: 1 / -1; }
-.dashboard > .card[style*="grid-column"] .eyebrow { border: 0; padding: 0; color: var(--ink); background: transparent; font-size: 17px; }
-.dashboard > .card[style*="grid-column"] > div[style*="display:flex"] > div { border: 1px solid var(--line); background: #f8fafc !important; color: #0f172a; text-align: left !important; }
-.dashboard > .card[style*="grid-column"] > div[style*="display:flex"] > div:nth-child(2) { border-color: #bfdbfe; background: #eff6ff !important; }
-.dashboard > .card[style*="grid-column"] > div[style*="display:flex"] > div:nth-child(3) { border-color: #fde68a; background: #fffbeb !important; }
-.dashboard > .card[style*="grid-column"] > div[style*="display:flex"] small { display: inline-block; margin-top: 5px; color: #64748b !important; }
+.dashboard-shell { position: relative; max-height: 720px; overflow: hidden; border-radius: 25px; -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 70%, transparent 100%); }
+.dashboard { display: grid; gap: 14px; padding: 22px; border: 1px solid #dce5e9; border-radius: 25px; background: #f1f5f5; box-shadow: 0 20px 55px rgba(15, 23, 42, .11); }
+.dashboard-header { display: flex; align-items: center; gap: 20px; min-height: 49px; }
+.dashboard-brand { display: flex; align-items: center; gap: 10px; }
+.dashboard-brand .brand-mark { width: 38px; height: 38px; border-radius: 13px; }
+.dashboard-brand strong { display: block; font: 700 17px Outfit, sans-serif; letter-spacing: -.04em; }
+.dashboard-eyebrow { display: block; margin-bottom: 1px; color: #64748b; font-size: 8px; font-weight: 700; letter-spacing: .14em; }
+.dashboard-date { margin-left: auto; color: #64748b; font-size: 12px; font-weight: 500; }
+.dashboard-controls { display: flex; gap: 6px; }
+.dashboard-controls span { display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid #e2e8f0; border-radius: 9px; background: #fff; color: #64748b; font-size: 14px; }
+.dashboard-overview { display: grid; grid-template-columns: .86fr 2.14fr; gap: 12px; }
+.preview-card { min-width: 0; border: 1px solid #e2e8f0; border-radius: 15px; background: #fff; box-shadow: 0 2px 7px rgba(15,23,42,.035); }
+.clock-preview { display: flex; min-height: 132px; flex-direction: column; justify-content: center; padding: 14px 20px; background: radial-gradient(ellipse at 95% 5%, rgba(16,185,129,.11), transparent 54%), #fff; }
+.card-kicker { display: flex; align-items: center; gap: 7px; margin-bottom: 7px; color: #64748b; font-size: 9px; font-weight: 700; letter-spacing: .12em; }
+.card-kicker i { width: 7px; height: 7px; border-radius: 50%; background: #10b981; }
+.clock-preview strong { font: 700 clamp(34px, 4vw, 50px)/1 Outfit, sans-serif; letter-spacing: -.06em; }
+.clock-preview > span:last-child { margin-top: 6px; color: #64748b; font-size: 12px; }
+.weather-preview { padding: 13px 20px; background: radial-gradient(ellipse at 92% 0%, rgba(59,130,246,.1), transparent 52%), #fff; }
+.weather-reading { display: flex; align-items: center; gap: 13px; }
+.weather-reading > span { font-size: 37px; }
+.weather-reading strong { margin-right: 9px; font: 700 31px Outfit, sans-serif; letter-spacing: -.05em; }
+.weather-reading small { color: #64748b; font-size: 11px; }
+.weather-reading div > span { display: block; color: #475569; font-size: 12px; }
+.weather-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 9px; border-top: 1px solid #e2e8f0; padding-top: 8px; color: #64748b; font-size: 9px; text-align: center; }
+.weather-summary b { display: block; margin-top: 2px; color: #0f172a; font-size: 11px; }
+.calendar-preview { padding: 13px 16px 15px; }
+.preview-card h2 { margin: 0 0 10px; font: 650 15px Outfit, sans-serif; }
+.calendar-days { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }
+.calendar-days > div { display: flex; min-height: 73px; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border: 1px solid #e2e8f0; border-radius: 11px; background: #f8fafc; }
+.calendar-days .selected-day { border-color: #a7f3d0; background: #ecfdf5; }
+.calendar-days small { color: #64748b; font-size: 9px; font-weight: 700; letter-spacing: .08em; }
+.calendar-days b { font: 700 17px Outfit, sans-serif; }
+.calendar-days span { color: #64748b; font-size: 9px; }
+.dashboard-columns { display: grid; grid-template-columns: 1.35fr 1fr; align-items: start; gap: 12px; }
+.chores-preview, .meals-preview, .notes-preview { padding: 15px 17px; }
+.points-banner { margin-bottom: 11px; border-radius: 10px; padding: 9px 11px; background: #ecfdf5; color: #047857; font-size: 11px; }
+.points-banner span { color: #64748b; }
+.member-row { display: flex; align-items: center; gap: 7px; margin: 8px 0 3px; font-size: 11px; }
+.member-row i { display: grid; width: 22px; height: 22px; place-items: center; border-radius: 50%; background: #60a5fa; color: white; font-size: 10px; font-style: normal; font-weight: 700; }
+.member-row.second i { background: #f472b6; }
+.member-row small { margin-left: auto; color: #64748b; }
+.chore-line { display: flex; align-items: center; gap: 8px; border-top: 1px solid #f1f5f9; padding: 7px 2px; color: #334155; font-size: 11px; }
+.checkbox { display: grid; width: 15px; height: 15px; place-items: center; border: 1px solid #cbd5e1; border-radius: 4px; color: white; font-size: 10px; }
+.checkbox.checked { border-color: #10b981; background: #10b981; }
+.chore-line .done { color: #94a3b8; text-decoration: line-through; }
+.dashboard-side { display: grid; gap: 12px; }
+.meal-date { color: #64748b; font-size: 8px; font-weight: 700; letter-spacing: .1em; }
+.meal-line { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid #f1f5f9; padding: 9px 0 2px; font-size: 11px; }
+.meal-line b { color: #64748b; }
+.note { border: 1px solid #fde68a; border-radius: 10px; padding: 11px; background: #fffbeb; color: #78350f; font-size: 11px; }
+.note small { display: block; margin-top: 7px; color: #a16207; text-align: right; }
 
 .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding-bottom: 78px; }
 .feature-card { min-height: 190px; transition: transform .18s ease, box-shadow .18s ease; }
@@ -97,10 +123,13 @@ h1 { max-width: 740px; margin: 22px auto 18px; font-size: clamp(44px, 7vw, 76px)
   .container { width: min(100% - 28px, 1120px); }
   .nav-links a:not(.nav-button) { display: none; }
   .hero { padding-top: 34px; }
-  .dashboard, .feature-grid { grid-template-columns: 1fr; }
-  .dashboard { padding: 12px; }
-  .time-card { min-height: 220px; }
-  .card { padding: 20px; }
+  .dashboard { gap: 10px; padding: 12px; }
+  .dashboard-shell { max-height: 760px; border-radius: 20px; -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%); }
+  .dashboard-overview { grid-template-columns: 1fr; }
+  .dashboard-columns { grid-template-columns: 1fr; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .dashboard-date { display: none; }
+  .dashboard-controls span { width: 27px; height: 27px; }
   .cta { padding: 34px 22px; }
   .footer-inner { flex-direction: column; }
 }
