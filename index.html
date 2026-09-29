@@ -15,7 +15,7 @@
     <nav class="nav-links" aria-label="Primary"><a href="#features">Features</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a class="nav-button" href="http://app.kinboard.xyz">Open app</a></nav>
   </div></header>
   <main>
-    <section class="hero container"><div class="eyebrow"><span></span> A calmer home starts here</div><h1>Your family's home base.</h1><p class="hero-copy">Kinboard brings the everyday details of family life into one simple, shared dashboard.</p><div class="hero-actions"><a class="button" href="http://app.kinboard.xyz">Open Kinboard</a><a class="button secondary" href="#preview">See how it works</a></div></section>
+    <section class="hero container"><div class="eyebrow"><span aria-hidden="true"></span><span class="eyebrow-message" aria-live="polite">A calmer home starts here</span></div><h1>Your family's home base.</h1><p class="hero-copy">Kinboard brings the everyday details of family life into one simple, shared dashboard.</p><div class="hero-actions"><a class="button" href="http://app.kinboard.xyz">Open Kinboard</a><a class="button secondary" href="#preview">See how it works</a></div></section>
     <section id="preview" class="preview container" aria-label="KinBoard dashboard preview">
       <div class="dashboard-shell">
         <div class="dashboard">
@@ -37,5 +37,53 @@
     <section id="get-started" class="cta container"><h2>Make home feel a little more organized.</h2><p>Kinboard is a simple place for the people and plans that matter most.</p><a class="button" href="http://app.kinboard.xyz">Open Kinboard</a></section>
   </main>
   <footer class="site-footer"><div class="container footer-inner"><span>© 2026 Kinboard</span><p class="footer-note">Made with <span aria-label="love">♥</span> for the people who make a home together.</p><div class="footer-links"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a></div></div></footer>
+  <script>
+    const homeSayings = [
+      "A calmer home starts here", "A little more in sync", "Make room for what matters", "Home, on the same page", "Less juggling, more living",
+      "The whole home in harmony", "Everyday life, a little lighter", "Find your family flow", "Small plans, smoother days", "Together makes it easier",
+      "A softer landing for busy days", "Keep the good stuff close", "Your home team, in sync", "Make the everyday feel easier", "More time for being together",
+      "A brighter rhythm at home", "Bring the moving parts together", "Home life, made clearer", "A little calm goes a long way", "Make space for more good days",
+      "One home, one shared rhythm", "Keep family life flowing", "A home base for busy lives", "Everyday plans, all together", "Feel good about the day ahead",
+      "The family rhythm starts here", "Keep home life on track", "More together, less to remember", "Plans that bring you closer", "Make the busy feel manageable",
+      "Your day, with room to breathe", "A happier rhythm for home", "The little things, all in place", "Make family time flow", "A home that runs together",
+      "Your people, your plans, one place", "Let home life click", "More ease in every day", "Keep everyone in the loop", "A shared view of what matters",
+      "Make today feel more together", "Bring a little order to the lovely chaos", "Family life, in good company", "Good days start at home", "A simple way to stay connected",
+      "More calm between the moments", "The home team starts here", "Get on the same page at home", "Give busy days a softer edge", "A little more breathing room",
+      "Where family plans come together", "Make the everyday work for everyone", "One less thing to hold in your head", "A better flow for family life", "Keep the day moving gently",
+      "Home feels better in sync", "A shared space for daily life", "Make room for the moments", "A smoother way to do home", "Your family, finding its rhythm",
+      "Stay close to the everyday", "All your home things, together", "Let the day fall into place", "More harmony, right at home", "A little help for the whole household",
+      "Keep what matters in view", "Make plans feel like part of life", "Home life, held together", "Bring everyone along", "A brighter way to organize home",
+      "Find a little more flow", "The everyday, made more connected", "Make family plans feel simple", "A steady hand for busy homes", "Together through the to-dos",
+      "A place for all the little plans", "Make home a team effort", "More clarity for the days you share", "Let good routines grow", "Home life, made for everyone",
+      "Keep the family beat", "Your household's happy place to plan", "A calm corner for family life", "The day makes sense together", "Make more of your time at home",
+      "Bring a little ease to every day", "A shared start to the day", "All together under one roof", "The good things are easier to find", "For the life you make together",
+      "Make the home team stronger", "A more thoughtful kind of together", "Keep daily life close at hand", "Home, with a little more heart", "Make every day a team day",
+      "The little details, working together", "A kinder pace for busy homes", "Your family's day, in view", "A better beat for home life", "Together is a lovely place to start"
+    ];
+    const saying = document.querySelector('.eyebrow-message');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let sayingIndex = 0;
+    let sayingTimer;
+
+    function rotateSaying() {
+      saying.classList.add('is-leaving');
+      window.setTimeout(() => {
+        sayingIndex = (sayingIndex + 1) % homeSayings.length;
+        saying.textContent = homeSayings[sayingIndex];
+        saying.classList.remove('is-leaving');
+        saying.classList.add('is-entering');
+        requestAnimationFrame(() => requestAnimationFrame(() => saying.classList.remove('is-entering')));
+      }, 260);
+    }
+
+    function syncSayingTimer() {
+      window.clearInterval(sayingTimer);
+      if (!reduceMotion.matches && !document.hidden) sayingTimer = window.setInterval(rotateSaying, 4000);
+    }
+
+    document.addEventListener('visibilitychange', syncSayingTimer);
+    reduceMotion.addEventListener('change', syncSayingTimer);
+    syncSayingTimer();
+  </script>
 </body>
 </html>
