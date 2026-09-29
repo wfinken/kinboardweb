@@ -108,9 +108,9 @@ h1 { max-width: 740px; margin: 22px auto 18px; font-size: clamp(44px, 7vw, 76px)
 .cta .button { color: #064e3b; background: #a7f3d0; }
 .cta .button:hover { background: #6ee7b7; }
 .site-footer { padding: 24px 0 38px; color: var(--muted); font-size: 13px; }
-.footer-note { margin: 0 0 14px; text-align: center; }
+.footer-note { margin: 0; text-align: center; }
 .footer-note span { color: #ef4444; }
-.footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+.footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
 .footer-links { display: flex; gap: 18px; }
 
 .legal { padding: 54px 0 90px; }
@@ -134,6 +134,7 @@ h1 { max-width: 740px; margin: 22px auto 18px; font-size: clamp(44px, 7vw, 76px)
   .dashboard-controls span { width: 27px; height: 27px; }
   .cta { padding: 34px 22px; }
   .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+  .footer-note { order: -1; }
   .footer-links { justify-content: center; flex-wrap: wrap; }
 }
 
