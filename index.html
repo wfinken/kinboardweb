@@ -1,107 +1,36 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kinboard is a simple, shared family dashboard for the things that matter at home.">
-  <link rel="canonical" href="https://kinboard.xyz/">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#f1f5f9">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kinboard</title>
+  <meta name="robots" content="noindex, follow">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-  <title>Kinboard — Your family's home base</title>
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Kinboard">
-  <meta property="og:title" content="Kinboard — Your family's home base">
-  <meta property="og:description" content="Kinboard brings the everyday details of family life into one simple, shared dashboard.">
-  <meta property="og:url" content="https://kinboard.xyz/">
-  <meta property="og:image" content="https://kinboard.xyz/assets/kinboard-social.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Kinboard family dashboard with calendar, chores, meals, weather, and notes">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kinboard — Your family's home base">
-  <meta name="twitter:description" content="Kinboard brings the everyday details of family life into one simple, shared dashboard.">
-  <meta name="twitter:image" content="https://kinboard.xyz/assets/kinboard-social.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      display: grid;
+      place-items: center;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+    main { text-align: center; padding: 24px; }
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: -0.02em; }
+    p { margin: 0; color: #64748b; }
+    @media (prefers-color-scheme: dark) {
+      body { background: #0f172a; color: #f1f5f9; }
+      p { color: #94a3b8; }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header"><div class="container nav">
-    <a class="brand" href="/" aria-label="KinBoard home"><span class="brand-mark" aria-hidden="true">K.</span><span>KinBoard</span></a>
-    <nav class="nav-links" aria-label="Primary"><a href="#features">Features</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a class="nav-button" href="https://app.kinboard.xyz">Open app</a></nav>
-  </div></header>
   <main>
-    <section class="hero container"><div class="eyebrow"><span aria-hidden="true"></span><span class="eyebrow-message" aria-live="polite">A calmer home starts here</span></div><h1>Your family's home base.</h1><p class="hero-copy">Kinboard brings calendars, chores, meal plans, notes, and family routines together in one shared dashboard, so everyone knows what’s happening at home.</p><div class="hero-actions"><a class="button" href="https://app.kinboard.xyz">Open Kinboard</a><a class="button secondary" href="#preview">See how it works</a></div></section>
-    <section id="preview" class="preview container" aria-label="KinBoard dashboard preview">
-      <div class="dashboard-shell">
-        <div class="dashboard">
-          <header class="dashboard-header">
-            <div class="dashboard-brand"><span class="brand-mark" aria-hidden="true">K.</span><div><span class="dashboard-eyebrow">YOUR FAMILY, IN SYNC</span><strong>KinBoard</strong></div></div>
-            <span class="dashboard-date">Monday, September 29</span>
-            <div class="dashboard-controls" aria-hidden="true"><span>⌗</span><span>⚙</span><span>☼</span></div>
-          </header>
-          <div class="dashboard-overview">
-            <article class="preview-card clock-preview"><span class="card-kicker"><i></i> RIGHT NOW</span><strong>08:45</strong><span>Monday, September 29</span></article>
-            <article class="preview-card weather-preview"><span class="card-kicker">⛅ WEATHER NEAR HOME</span><div class="weather-reading"><span>🌤️</span><div><strong>72°F</strong><small>Feels like 70°F</small><span>Partly cloudy</span></div></div><div class="weather-summary"><span>High / Low <b>75° / 59°</b></span><span>Humidity <b>48%</b></span><span>Wind <b>6 mph</b></span><span>Precip <b>10%</b></span></div></article>
-          </div>
-          <article class="preview-card calendar-preview"><h2>📅 Calendar</h2><div class="calendar-days"><div><small>TUE</small><b>30</b><span>Library visit</span></div><div class="selected-day"><small>WED</small><b>1</b><span>Garden club · 3 PM</span></div><div><small>THU</small><b>2</b><span>Pizza night</span></div><div><small>FRI</small><b>3</b><span>Park meetup · 4 PM</span></div></div></article>
-          <div class="dashboard-columns"><article class="preview-card chores-preview"><h2>✅ Chores</h2><div class="points-banner">⭐ <b>12 family points earned</b><span>· keep your streak growing</span></div><div class="member-row"><i>L</i><b>Liam</b><small>1/3</small></div><div class="chore-line"><span class="checkbox checked">✓</span><span class="done">Make the bed</span></div><div class="chore-line"><span class="checkbox"></span><span>Feed the dog</span></div><div class="chore-line"><span class="checkbox"></span><span>Set the table</span></div><div class="member-row second"><i>R</i><b>Renn</b><small>0/2</small></div><div class="chore-line"><span class="checkbox"></span><span>Put toys away</span></div></article><aside class="dashboard-side"><article class="preview-card meals-preview"><h2>🍽️ Meal plan</h2><span class="meal-date">TODAY</span><div class="meal-line"><b>Dinner</b><span>🌮 &nbsp;Tacos</span></div><div class="meal-line"><b>Tomorrow</b><span>🍝 &nbsp;Pasta bake</span></div></article><article class="preview-card notes-preview"><h2>📝 Sticky notes</h2><div class="note">Don’t forget library books!<small>— Mom</small></div></article></aside></div>
-        </div>
-      </div>
-    </section>
-    <section id="features" class="feature-grid container"><article class="card feature-card"><div class="feature-icon">✅</div><h3>Family chore chart and allowance</h3><p>Share household tasks, let kids bid on eligible chores, and manage allowance with parent approval.</p></article><article class="card feature-card"><div class="feature-icon">🍽️</div><h3>Shared family meal planner</h3><p>Plan breakfast, lunch, and dinner for today and see what’s on the menu for the week.</p></article><article class="card feature-card"><div class="feature-icon">🎛️</div><h3>One dashboard for family life</h3><p>Bring calendars, notes, weather, and more together, then arrange and size widgets to fit your family.</p></article></section>
-    <section id="get-started" class="cta container"><h2>Make home feel a little more organized.</h2><p>Kinboard is a free shared family dashboard for calendars, chores, meals, notes, and the routines that keep a household moving.</p><a class="button" href="https://app.kinboard.xyz">Open Kinboard</a></section>
+    <h1>Kinboard</h1>
+    <p>This domain is currently parked.</p>
   </main>
-  <footer class="site-footer"><div class="container footer-inner"><span>© 2026 Kinboard</span><p class="footer-note">Made with <span aria-label="love">♥</span> for the people who make a home together.</p><div class="footer-links"><a href="/privacy/">Privacy Policy</a><a href="/terms/">Terms of Service</a></div></div></footer>
-  <script>
-    const homeSayings = [
-      "A calmer home starts here", "A little more in sync", "Make room for what matters", "Home, on the same page", "Less juggling, more living",
-      "The whole home in harmony", "Everyday life, a little lighter", "Find your family flow", "Small plans, smoother days", "Together makes it easier",
-      "A softer landing for busy days", "Keep the good stuff close", "Your home team, in sync", "Make the everyday feel easier", "More time for being together",
-      "A brighter rhythm at home", "Bring the moving parts together", "Home life, made clearer", "A little calm goes a long way", "Make space for more good days",
-      "One home, one shared rhythm", "Keep family life flowing", "A home base for busy lives", "Everyday plans, all together", "Feel good about the day ahead",
-      "The family rhythm starts here", "Keep home life on track", "More together, less to remember", "Plans that bring you closer", "Make the busy feel manageable",
-      "Your day, with room to breathe", "A happier rhythm for home", "The little things, all in place", "Make family time flow", "A home that runs together",
-      "Your people, your plans, one place", "Let home life click", "More ease in every day", "Keep everyone in the loop", "A shared view of what matters",
-      "Make today feel more together", "Bring a little order to the lovely chaos", "Family life, in good company", "Good days start at home", "A simple way to stay connected",
-      "More calm between the moments", "The home team starts here", "Get on the same page at home", "Give busy days a softer edge", "A little more breathing room",
-      "Where family plans come together", "Make the everyday work for everyone", "One less thing to hold in your head", "A better flow for family life", "Keep the day moving gently",
-      "Home feels better in sync", "A shared space for daily life", "Make room for the moments", "A smoother way to do home", "Your family, finding its rhythm",
-      "Stay close to the everyday", "All your home things, together", "Let the day fall into place", "More harmony, right at home", "A little help for the whole household",
-      "Keep what matters in view", "Make plans feel like part of life", "Home life, held together", "Bring everyone along", "A brighter way to organize home",
-      "Find a little more flow", "The everyday, made more connected", "Make family plans feel simple", "A steady hand for busy homes", "Together through the to-dos",
-      "A place for all the little plans", "Make home a team effort", "More clarity for the days you share", "Let good routines grow", "Home life, made for everyone",
-      "Keep the family beat", "Your household's happy place to plan", "A calm corner for family life", "The day makes sense together", "Make more of your time at home",
-      "Bring a little ease to every day", "A shared start to the day", "All together under one roof", "The good things are easier to find", "For the life you make together",
-      "Make the home team stronger", "A more thoughtful kind of together", "Keep daily life close at hand", "Home, with a little more heart", "Make every day a team day",
-      "The little details, working together", "A kinder pace for busy homes", "Your family's day, in view", "A better beat for home life", "Together is a lovely place to start"
-    ];
-    const saying = document.querySelector('.eyebrow-message');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let sayingIndex = 0;
-    let sayingTimer;
-
-    function rotateSaying() {
-      saying.classList.add('is-leaving');
-      window.setTimeout(() => {
-        sayingIndex = (sayingIndex + 1) % homeSayings.length;
-        saying.textContent = homeSayings[sayingIndex];
-        saying.classList.remove('is-leaving');
-        saying.classList.add('is-entering');
-        requestAnimationFrame(() => requestAnimationFrame(() => saying.classList.remove('is-entering')));
-      }, 260);
-    }
-
-    function syncSayingTimer() {
-      window.clearInterval(sayingTimer);
-      if (!reduceMotion.matches && !document.hidden) sayingTimer = window.setInterval(rotateSaying, 4000);
-    }
-
-    document.addEventListener('visibilitychange', syncSayingTimer);
-    reduceMotion.addEventListener('change', syncSayingTimer);
-    syncSayingTimer();
-  </script>
 </body>
 </html>
